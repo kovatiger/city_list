@@ -6,7 +6,7 @@ App allows user browse through cities and countries list
 
 ### Configure .env file
 
-Create .env file in the root of the project        
+Add values in .env file in the root of the project instead {VARIABLE_VALUE}       
 Example:
 1. POSTGRES_HOST=postgres
 2. POSTGRES_USERNAME=postgres
@@ -32,6 +32,14 @@ To start app use: docker-compose up
 
 Go http://localhost:9090 and sign in with credentials from .env  
 Then create bucket (the same as in .env file) and upload images from logos directory
+Path to logos directory: src/main/resources/logos
+
+### Default users
+User permissions:
+login:user,password:user
+
+Admin permissions:
+login:admin,password:admin
 
 ### Available urls:
 
