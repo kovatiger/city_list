@@ -87,7 +87,7 @@ class AuthControllerTest {
     }
 
     @Test
-    void refreshTokens() throws Exception {
+    void refreshTokens_everythingOkay_returnJwtResponse() throws Exception {
         when(authService.refreshTokens(refreshToken)).thenReturn(jwtResponse);
 
         ResultActions type = mockMvc.perform(get("/api/v1/auth/refresh")
@@ -101,7 +101,7 @@ class AuthControllerTest {
     }
 
     @Test
-    void refreshTokens2() throws Exception {
+    void refreshTokens_tokenInvalid_returnException() throws Exception {
         when(authService.refreshTokens(refreshToken)).thenThrow(AccessDeniedException.class);
 
         mockMvc.perform(get("/api/v1/auth/refresh")
@@ -123,5 +123,4 @@ class AuthControllerTest {
                 .refreshToken(newRefreshToken)
                 .build();
     }
-
 }

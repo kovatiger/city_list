@@ -73,10 +73,8 @@ class CityServiceImplTest {
     void findAllCities_ReturnsCityPage() {
         int pageNumber = 0;
         int pageSize = 3;
-
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         Page<City> expectedPage = new PageImpl<>(cities, pageable, cities.size());
-
         when(cityRepository.findAll(pageable)).thenReturn(expectedPage);
 
         Page<City> result = cityService.findAllCities(pageNumber, pageSize);
@@ -88,11 +86,11 @@ class CityServiceImplTest {
     void findAllCities_NegativePageNumber_ThrowsException() {
         int pageNumber = -1;
         int pageSize = 10;
-
         Pageable pageable = PageRequest.of(1, 3);
 
         assertThrows(IllegalArgumentException.class,
                 () -> cityService.findAllCities(pageNumber, pageSize));
+
         verify(cityRepository, times(0)).findAll(pageable);
     }
 

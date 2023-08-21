@@ -69,10 +69,8 @@ class CountryServiceImplTest {
     void findAllCountries_returnCountryPage() {
         int pageNumber = 0;
         int pageSize = 3;
-
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         Page<Country> expectedPage = new PageImpl<>(countries, pageable, countries.size());
-
         when(countryRepository.findAll(pageable)).thenReturn(expectedPage);
 
         Page<Country> result = countryService.findAllCountries(pageNumber, pageSize);
@@ -84,11 +82,11 @@ class CountryServiceImplTest {
     void findAllCountries_NegativePageNumber_ThrowsException() {
         int pageNumber = -1;
         int pageSize = 10;
-
         Pageable pageable = PageRequest.of(1, 3);
 
         assertThrows(IllegalArgumentException.class,
                 () -> countryService.findAllCountries(pageNumber, pageSize));
+
         verify(countryRepository, times(0)).findAll(pageable);
     }
 
