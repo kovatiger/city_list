@@ -23,7 +23,7 @@ public class UpdateCityWithLogoFacade {
         City city = cityService.findCityByCityName(requestDto.getCurrentCityName());
         cityService.updateCityName(city, requestDto.getNewCityName());
         Country country = city.getCountry();
-        String newFileName = imageService.updateLogo(requestDto.getFile(),country.getLogoName());
-        countryService.updateLogoName(country,newFileName);
+        String newLogoName = imageService.updateLogo(requestDto.getFile(), country.getLogoName());
+        countryService.updateLogoName(country, newLogoName);
     }
 }

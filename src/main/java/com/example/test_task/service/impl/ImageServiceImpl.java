@@ -25,16 +25,16 @@ public class ImageServiceImpl implements ImageService {
     private final MinioProperties minioProperties;
 
     @Override
-    public String getImageUrlByLogoName(String logoName) {
+    public String getImageByteArrayByLogoName(String logoName) {
         try {
             GetObjectArgs args = GetObjectArgs.builder()
                     .bucket(minioProperties.getBucket())
                     .object(logoName)
                     .build();
-            InputStream object = minioClient.getObject(args);
+            InputStream image = minioClient.getObject(args);
 
-            byte[] content = IOUtils.toByteArray(object);
-            return Base64.getEncoder().encodeToString(content);
+            byte[] imageByteArray = IOUtils.toByteArray(image);
+            return Base64.getEncoder().encodeToString(imageByteArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,8 +45,8 @@ public class ImageServiceImpl implements ImageService {
     public List<CityWithLogoResponseDto> getListOfCitiesWithLogos(List<CityWithLogoResponseDto> citiesWithLogoDto) {
         for (CityWithLogoResponseDto city : citiesWithLogoDto) {
             String logoName = city.getCountry().getLogoName();
-            String logoUrl = getImageUrlByLogoName(logoName);
-            city.setLogoUrl(logoUrl);
+            String imageByteArray = getImageByteArrayByLogoName(logoName);
+            city.setImageByteArray(imageByteArray);
         }
         return citiesWithLogoDto;
     }
@@ -62,7 +62,7 @@ public class ImageServiceImpl implements ImageService {
         try {
             createBucket();
 
-            fileName = generateFileName(file, logoName);
+            fileName = generateFileName(file);
             InputStream inputStream = file.getInputStream();
             saveImage(inputStream, fileName);
 
@@ -94,7 +94,7 @@ public class ImageServiceImpl implements ImageService {
         minioClient.removeObject(removeObjectArgs);
     }
 
-    private String generateFileName(MultipartFile file, String logoName) {
+    private String generateFileName(MultipartFile file) {
         String extension = getExtension(file);
         return UUID.randomUUID() + "." + extension;
     }

@@ -11,7 +11,6 @@ import java.util.UUID;
 
 @Repository
 public interface CountryRepository extends JpaRepository<Country, UUID> {
-
     Page<Country> findAll(Pageable pageable);
 
     Optional<Country> findByCountryName(String country);

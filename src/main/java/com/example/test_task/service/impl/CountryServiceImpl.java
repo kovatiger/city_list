@@ -37,8 +37,8 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     @Transactional
-    public void updateLogoName(Country country, String newFileName) {
-        country.setLogoName(newFileName);
+    public void updateLogoName(Country country, String newLogoName) {
+        country.setLogoName(newLogoName);
         countryRepository.save(country);
     }
 }

@@ -11,12 +11,12 @@ import java.util.List;
 public interface ImageService {
 
     /**
-     * Method for getting image by logo name
+     * Method for getting image byte array by logo name
      *
      * @param logoName name of logo
-     * @return image
+     * @return image byte array
      */
-    String getImageUrlByLogoName(String logoName);
+    String getImageByteArrayByLogoName(String logoName);
 
     /**
      * Method for getting images for list of cities

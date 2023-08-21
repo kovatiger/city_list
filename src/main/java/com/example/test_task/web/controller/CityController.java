@@ -39,8 +39,8 @@ public class CityController {
     @Operation(summary = "Get city by particular city name")
     public ResponseEntity<CityWithLogoResponseDto> getCityByCityName(@RequestParam @NotBlank String cityName) {
         City city = cityService.findCityByCityName(cityName);
-        String imageUrl = imageService.getImageUrlByLogoName(city.getCountry().getLogoName());
-        CityWithLogoResponseDto responseCityDto = new CityWithLogoResponseDto(cityName, imageUrl);
+        String imageByteArray = imageService.getImageByteArrayByLogoName(city.getCountry().getLogoName());
+        CityWithLogoResponseDto responseCityDto = new CityWithLogoResponseDto(cityName, imageByteArray);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(responseCityDto);
     }
