@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolationException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -47,10 +48,9 @@ public class ControllerAdvice {
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionBody handleConstraintViolationException(ConstraintViolationException e) {
+    public List<ExceptionBody> handleConstraintViolationException(ConstraintViolationException e) {
         log.error(e.getMessage());
-        ExceptionBody exceptionBody = new ExceptionBody("Validation failed");
-        exceptionBody.setMessage(Objects.requireNonNull(e.getMessage()));
-        return exceptionBody;
+        return e.getConstraintViolations().stream().map(
+                violation -> new ExceptionBody(violation.getMessage())).collect(Collectors.toList());
     }
 }
