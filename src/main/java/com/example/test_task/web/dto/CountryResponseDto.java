@@ -1,10 +1,14 @@
 package com.example.test_task.web.dto;
 
-import lombok.Builder;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
-@Builder
-public class CountryDto {
+@Schema(description = "Country name dto")
+public class CountryResponseDto {
+    @Schema(name = "country name", example = "Belarus")
+    @NotBlank
     private String countryName;
 }

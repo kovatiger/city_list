@@ -1,13 +1,14 @@
-package com.example.test_task.web;
+package com.example.test_task.web.mapper;
 
 import com.example.test_task.model.Country;
-import com.example.test_task.web.dto.CountryDto;
+import com.example.test_task.web.dto.CountryResponseDto;
 import org.springframework.data.domain.Page;
+import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@org.mapstruct.Mapper(componentModel = "Spring")
+@Mapper(componentModel = "Spring")
 public interface CountryMapper {
 
-    List<CountryDto> getCountryDto(Page<Country> page);
+    List<CountryResponseDto> getCountryDto(Page<Country> page);
 }

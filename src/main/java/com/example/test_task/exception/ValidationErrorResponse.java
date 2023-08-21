@@ -7,6 +7,6 @@ import java.util.List;
 
 @Data
 @RequiredArgsConstructor
-public class ViolationErrorResponse {
+public class ValidationErrorResponse {
     private final List<Violation> violations;
 }

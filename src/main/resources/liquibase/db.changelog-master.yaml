@@ -1,17 +1,21 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changesets/create_table/V202317081804_create_user_table.sql
+      file: liquibase/changesets/create_table/V202317081804_create_user_table.sql
   - include:
-      file: db/changelog/changesets/create_table/V202317081808_create_country_table.sql
+      file: liquibase/changesets/create_table/V202317081808_create_country_table.sql
   - include:
-      file: db/changelog/changesets/create_table/V202317081815_create_city_table.sql
+      file: liquibase/changesets/create_table/V202317081815_create_city_table.sql
   - include:
-      file: db/changelog/changesets/create_table/V202317081820_create_user_roles_table.sql
+      file: liquibase/changesets/create_table/V202317081820_create_role_table.sql
   - include:
-      file: db/changelog/changesets/insert_data/V202317081830_insert_user_data.sql
+      file: liquibase/changesets/create_table/V202317081826_create_user_role_table.sql
   - include:
-      file: db/changelog/changesets/insert_data/V202317081836_insert_user_roles_data.sql
+      file: liquibase/changesets/insert_data/V202317081830_insert_user_data.sql
   - include:
-      file: db/changelog/changesets/insert_data/V202317081847_insert_country_data.sql
+      file: liquibase/changesets/insert_data/V202317081847_insert_country_data.sql
   - include:
-      file: db/changelog/changesets/insert_data/V202317081902_insert_city_data.sql
+      file: liquibase/changesets/insert_data/V202317081902_insert_city_data.sql
+  - include:
+      file: liquibase/changesets/insert_data/V202317081910_insert_role_data.sql
+  - include:
+      file: liquibase/changesets/insert_data/V202317081836_insert_user_roles_data.sql

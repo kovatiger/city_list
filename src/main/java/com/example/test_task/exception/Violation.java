@@ -1,2 +1,11 @@
-package com.example.test_task.exception;public class Violation {
+package com.example.test_task.exception;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
+public class Violation {
+    private final String fieldName;
+    private final String message;
 }
