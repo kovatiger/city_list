@@ -1,9 +1,10 @@
-package com.example.test_task.service.impl;
+package com.example.test_task.unit.service.impl;
 
 import com.example.test_task.exception.ResourceNotFoundException;
 import com.example.test_task.model.User;
 import com.example.test_task.security.JwtTokenProvider;
 import com.example.test_task.service.UserService;
+import com.example.test_task.service.impl.AuthServiceImpl;
 import com.example.test_task.web.dto.JwtRequest;
 import com.example.test_task.web.dto.JwtResponse;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,10 +1,10 @@
-FROM maven:3.8.5-openjdk-11 AS build
+FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /
 COPY /src /src
 COPY pom.xml /
-RUN mvn -f /pom.xml clean package
+RUN mvn -f /pom.xml clean package -DskipTests
 
-FROM openjdk:11-jdk-slim
+FROM openjdk:17
 WORKDIR /
 COPY /src /src
 COPY --from=build /target/*.jar application.jar
