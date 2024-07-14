@@ -1,10 +1,11 @@
-package com.example.test_task.web.controller;
+package com.example.test_task.unit.web.controller;
 
 import com.example.test_task.exception.ControllerAdvice;
 import com.example.test_task.exception.ResourceNotFoundException;
 import com.example.test_task.model.City;
 import com.example.test_task.model.Country;
 import com.example.test_task.service.CountryService;
+import com.example.test_task.web.controller.CountryController;
 import com.example.test_task.web.dto.CityByCountryNameResponseDto;
 import com.example.test_task.web.dto.CountryResponseDto;
 import com.example.test_task.web.mapper.CityMapper;

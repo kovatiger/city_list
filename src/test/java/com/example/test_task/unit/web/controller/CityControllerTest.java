@@ -1,4 +1,4 @@
-package com.example.test_task.web.controller;
+package com.example.test_task.unit.web.controller;
 
 import com.example.test_task.exception.ControllerAdvice;
 import com.example.test_task.exception.ResourceNotFoundException;
@@ -6,6 +6,7 @@ import com.example.test_task.model.City;
 import com.example.test_task.model.Country;
 import com.example.test_task.service.CityService;
 import com.example.test_task.service.ImageService;
+import com.example.test_task.web.controller.CityController;
 import com.example.test_task.web.dto.CityWithLogoResponseDto;
 import com.example.test_task.web.mapper.CityMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;

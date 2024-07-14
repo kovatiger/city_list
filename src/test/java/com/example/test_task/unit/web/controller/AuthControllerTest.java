@@ -1,9 +1,10 @@
-package com.example.test_task.web.controller;
+package com.example.test_task.unit.web.controller;
 
 import com.example.test_task.exception.AccessDeniedException;
 import com.example.test_task.exception.ControllerAdvice;
 import com.example.test_task.exception.ResourceNotFoundException;
 import com.example.test_task.service.AuthService;
+import com.example.test_task.web.controller.AuthController;
 import com.example.test_task.web.dto.JwtRequest;
 import com.example.test_task.web.dto.JwtResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;

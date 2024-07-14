@@ -1,9 +1,10 @@
-package com.example.test_task.service.impl;
+package com.example.test_task.unit.service.impl;
 
 import com.example.test_task.exception.ResourceNotFoundException;
 import com.example.test_task.model.City;
 import com.example.test_task.model.Country;
 import com.example.test_task.repository.CountryRepository;
+import com.example.test_task.service.impl.CountryServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
